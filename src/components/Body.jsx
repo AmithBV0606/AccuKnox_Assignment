@@ -1,6 +1,10 @@
 import React from 'react'
 import WidgetBTN from '../components/WidgetBTN'
-import Category from './Category'
+import WidgetSettingsBTN from './WidgetSettingsBTN'
+import CSPMCategory from './CSPMCategory'
+import CWPPCategory from './CWPPCategory'
+import RegistryCategory from './RegistryCategory'
+import TicketCategory from './TicketCategory'
 
 function Body() {
   return (
@@ -10,14 +14,14 @@ function Body() {
         <div className='flex justify-between items-center'>
           <h2 className='text-2xl font-semibold'>CNAPP Dashboard</h2>
 
-          <WidgetBTN />
+          <WidgetSettingsBTN />
         </div>
 
         <div className='space-y-5'>
-          <Category widgetName={"CSPM Executive dashboard"}/>
-          <Category widgetName={"CWPP dashboard"}/>
-          <Category widgetName={"Registry Scan"}/>
-          <Category widgetName={"Ticket"}/>
+          <CSPMCategory />
+          <CWPPCategory />
+          <RegistryCategory />
+          <TicketCategory />
         </div>
       </div>
     </main>
