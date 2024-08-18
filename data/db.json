@@ -1,0 +1,50 @@
+{
+    "CSPM-Executive-dashboard": [
+        {
+            "id" : 1,
+            "title": "Title 1",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        },
+        {
+            "id" : 2,
+            "title": "Title 2",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        }
+    ],
+    "CWPP-dashboard":[
+        {
+            "id" : 1,
+            "title": "Title 1",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        },
+        {
+            "id" : 2,
+            "title": "Title 2",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        }
+    ],
+    "Registry-Scan":[
+        {
+            "id" : 1,
+            "title": "Title 1",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        },
+        {
+            "id" : 2,
+            "title": "Title 2",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        }
+    ],
+    "Ticket":[
+        {
+            "id" : 1,
+            "title": "Title 1",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        },
+        {
+            "id" : 2,
+            "title": "Title 2",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
+        }
+    ]
+}
