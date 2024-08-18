@@ -23,7 +23,7 @@ function TicketCategory() {
 
             {ticketData && 
               ticketData.map((item) => (
-                <div className="bg-white w-96 p-3 rounded-lg space-y-5" key={item.id}>
+                <div className="bg-white w-96 p-3 rounded-lg space-y-5" key={item.id} draggable>
                   <h2 className="text-lg font-medium">{item.title}</h2>
 
                   <p className="text-sm">
@@ -34,7 +34,7 @@ function TicketCategory() {
             }
 
             <div className="bg-white w-96 p-3 rounded-lg flex justify-center items-center">
-              <WidgetBTN />
+              <WidgetBTN dashBoardName={"Ticket"}/>
             </div>
 
         </div>
