@@ -1,50 +1,40 @@
 {
-    "CSPM-Executive-dashboard": [
-        {
-            "id" : 1,
-            "title": "Title 1",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        },
-        {
-            "id" : 2,
-            "title": "Title 2",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        }
-    ],
-    "CWPP-dashboard":[
-        {
-            "id" : 1,
-            "title": "Title 1",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        },
-        {
-            "id" : 2,
-            "title": "Title 2",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        }
-    ],
-    "Registry-Scan":[
-        {
-            "id" : 1,
-            "title": "Title 1",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        },
-        {
-            "id" : 2,
-            "title": "Title 2",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        }
-    ],
-    "Ticket":[
-        {
-            "id" : 1,
-            "title": "Title 1",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        },
-        {
-            "id" : 2,
-            "title": "Title 2",
-            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae possimus ut corporis molestiae, aliquam expedita corrupti eaque totam, porro incidunt praesentium laudantium quisquam molestias asperiores iste blanditiis perferendis, quia facere!"
-        }
-    ]
+  "CSPM-Executive-dashboard": [
+    {
+      "id": "0fdb",
+      "category": "CSPM-Executive-dashboard",
+      "title": "Amith",
+      "text": "Frontend"
+    },
+    {
+      "id": "e745",
+      "category": "CSPM-Executive-dashboard",
+      "title": "Sidvin",
+      "text": "Python dev"
+    }
+  ],
+  "CWPP-dashboard": [
+    {
+      "id": "e8d6",
+      "category": "CWPP-dashboard",
+      "title": "Varun",
+      "text": "Full-Stack"
+    }
+  ],
+  "Registry-Scan": [
+    {
+      "id": "2c69",
+      "category": "Registry-Scan",
+      "title": "Nitish",
+      "text": "Data Scientist"
+    }
+  ],
+  "Ticket": [
+    {
+      "id": "5d21",
+      "category": "Ticket",
+      "title": "Arvind",
+      "text": "Is also a Data Scientist!!"
+    }
+  ]
 }
