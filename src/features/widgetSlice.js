@@ -49,8 +49,14 @@ export const widgetSlice = createSlice({
     initialState: {
         value: [],
         loading: false,
-        error: null
+        error: null,
+        searchData: [],
     },    
+    reducers:{
+        searchWidget : (state, action) => {
+            state.searchData = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         // POST Operation - Widget Creation
         builder.addCase(createWidget.pending, (state) => {
@@ -70,3 +76,5 @@ export const widgetSlice = createSlice({
 });
 
 export default widgetSlice.reducer;
+
+export const {searchWidget} = widgetSlice.actions;

@@ -71,6 +71,7 @@ function WidgetSettingsBTN() {
   };
 
   const handleConfirm = async () => {
+    console.log(selecteditems);
     for (let item of displayData) {
       if (selecteditems.includes(item.id)) {
         await fetch(`http://localhost:3000/${item.category}/${item.id}`, {
@@ -151,7 +152,7 @@ function WidgetSettingsBTN() {
                       {displayData && displayData.map((item) => (
                         <div 
                           key={item.id} 
-                          className={`flex gap-5 bg-slate-300 p-5 rounded-2xl ${selecteditems.includes(item.id) ? "bg-red-300" : ""}`}
+                          className={`flex gap-5 bg-slate-300 p-5 rounded-2xl ${selecteditems.includes(item.id) ? "bg-red-400" : ""}`}
                         >
                           <input 
                             type="checkbox" 

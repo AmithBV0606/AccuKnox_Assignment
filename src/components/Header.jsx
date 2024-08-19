@@ -1,6 +1,9 @@
 import { Disclosure, Menu, MenuButton } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchWidget } from '../features/widgetSlice';
+import { useNavigate } from 'react-router-dom';
 
 const user = {
   imageUrl:'src/assets/account.png',
@@ -8,6 +11,15 @@ const user = {
 
 export default function Header() {
   const [searchData, setSearchData] = useState("");
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(searchWidget(searchData));
+  }, [searchData])
+  
 
   return (
     <>
@@ -40,7 +52,14 @@ export default function Header() {
                   type="search"
                   placeholder='Search for widgets'
                   className='outline-none w-10/12'
-                  onChange={(e) => setSearchData(e.target.value)}
+                  onChange={(e) => {
+                    setSearchData(e.target.value);
+                    if (e.target.value.trim()) { // Ensure the search term isn't empty
+                      navigate("/search");
+                    } else {
+                      navigate("/")
+                    }
+                  }}
                 />
               </div>
 
