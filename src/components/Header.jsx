@@ -1,5 +1,5 @@
 import { Disclosure, Menu, MenuButton } from '@headlessui/react'
-import { BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { BellIcon } from '@heroicons/react/24/outline'
 
 const user = {
   imageUrl:'src/assets/account.png',

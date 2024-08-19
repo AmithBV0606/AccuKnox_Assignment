@@ -6,12 +6,14 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { createWidget } from "../features/widgetSlice";
 
 function WidgetBTN(props) {
   const [widget, setWidget] = useState(true);
   const [widgetData, setWidgetData] = useState({
     category:props.dashBoardName,
-    name:"",
+    title:"",
     text:"",
   })
 
@@ -30,6 +32,15 @@ function WidgetBTN(props) {
     const {name, value} = e.target;
     // console.log(name, " : ", value);
     setWidgetData({...widgetData, [name]:value})
+  }
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Widget Data : ", widgetData);
+    dispatch(createWidget(widgetData));
+    handleClose();
   }
 
   return (
@@ -66,50 +77,47 @@ function WidgetBTN(props) {
                             <div className="sm:flex sm:items-start">
                                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                 <DialogTitle
-                                    as="h3"
-                                    className="text-base font-semibold leading-6 text-gray-900"
+                                  as="h3"
+                                  className="text-base font-semibold leading-6 text-gray-900"
                                 >
-                                    Add a new widget!
+                                    Add a new widget to {props.dashBoardName} category.
                                 </DialogTitle>
 
                                 <div className="mt-2">
                                     <form 
-                                        className="flex flex-col gap-2"
-                                        // onSubmit={(e) => {
-                                        //     e.preventDefault();
-                                        // }}  
+                                      className="flex flex-col gap-2" 
+                                      onSubmit={handleSubmit}
                                     >
                                         <label htmlFor="">Name : </label>
                                         <input
-                                            type="text"
-                                            placeholder="Add widget name..."
-                                            name="name"
-                                            onChange={handleInputChange}
-                                            className="w-96 p-2 border-2 border-gray-300 outline-none rounded-lg"
+                                          type="text"
+                                          placeholder="Add widget name..."
+                                          name="title"
+                                          onChange={handleInputChange}
+                                          required
+                                          className="w-96 p-2 border-2 border-gray-300 outline-none rounded-lg"
                                         />
 
                                         <label htmlFor="">Text : </label>
                                         <textarea
-                                            id=""
-                                            placeholder="Add widget text..."
-                                            name="text"
-                                            onChange={handleInputChange}
-                                            className="h-52 p-2 border-2 border-gray-300 outline-none rounded-lg"
+                                          id=""
+                                          placeholder="Add widget text..."
+                                          name="text"
+                                          onChange={handleInputChange}
+                                          required
+                                          maxLength="200"
+                                          className="h-52 p-2 border-2 border-gray-300 outline-none rounded-lg"
                                         ></textarea>
 
                                         <button
-                                            type="button"
-                                            onClick={() => {
-                                                handleClose();
-                                                console.log(widgetData);
-                                            }}
-                                            className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+                                          type="submit"
+                                          className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
                                         >
-                                            Add Widget
+                                          Add Widget
                                         </button>
 
                                         <button
-                                            type="button"
+                                            type="submit"
                                             ref={cancelButtonRef} // Set focus to this button on modal open
                                             onClick={handleClose}
                                             className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
