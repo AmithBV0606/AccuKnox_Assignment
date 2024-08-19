@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -7,6 +7,7 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { data } from "autoprefixer";
 
 const Categories = [
     "CSPM",
@@ -17,6 +18,8 @@ const Categories = [
 
 function WidgetSettingsBTN() {
   const [settings, setSettings] = useState(true);
+  const [displayData, setDisplayData] = useState(null);
+  const [selecteditems, setSelectedItems] = useState([]);
 
   const closeButtonRef = useRef(null);
 
@@ -24,9 +27,59 @@ function WidgetSettingsBTN() {
     setSettings(!settings);
   };
 
-    const handleClose = () => {
-        setSettings(true)
+  const handleClose = () => {
+    setSettings(true)
+  }
+
+  const displayWidget = async (category) => {
+    if (category === "CSPM") {
+      const response = await fetch(`http://localhost:3000/CSPM-Executive-dashboard`);
+      const data = await response.json();
+      setDisplayData(data);
+    } else if(category === "CWPP"){
+      const response = await fetch(`http://localhost:3000/CWPP-dashboard`);
+      const data = await response.json();
+      setDisplayData(data);
+    } else if(category === "Registry Scan") {
+      const response = await fetch(`http://localhost:3000/Registry-Scan`);
+      const data = await response.json();
+      setDisplayData(data);
+    } else if(category === "Ticket") {
+      const response = await fetch(`http://localhost:3000/Ticket`);
+      const data = await response.json();
+      setDisplayData(data);
+    } else {
+      console.log("Something went wrong");
     }
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(`http://localhost:3000/CSPM-Executive-dashboard`);
+      const data = await response.json();
+      setDisplayData(data);
+    }
+    fetchData();
+  }, [settings]);
+
+  const handleCheckboxChange = (id) => {
+    setSelectedItems((prevState) => 
+      prevState.includes(id) 
+        ? prevState.filter((item) => item !== id) 
+        :[...prevState, id]
+    );
+  };
+
+  const handleConfirm = async () => {
+    for (let item of displayData) {
+      if (selecteditems.includes(item.id)) {
+        await fetch(`http://localhost:3000/${item.category}/${item.id}`, {
+          method: "DELETE",
+        });
+      }
+    }
+    handleClose();
+  }
 
   return (
     <>
@@ -70,24 +123,62 @@ function WidgetSettingsBTN() {
                       </button>
                     </div>
                   </TransitionChild>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+
+                  <div className="h-full flex-col bg-white py-6 space-y-6 shadow-xl">
                     <div className="px-4 sm:px-6">
-                        <DialogTitle 
-                            className="text-base font-semibold leading-6 text-gray-900"
-                        >
-                            <h1 className="text-2xl font-bold">Personalise your dashboard by enabling the custom widgets</h1>
-                        </DialogTitle>
+                      <DialogTitle 
+                        className="text-base font-semibold leading-6 text-gray-900"
+                      >
+                        <h1 className="text-2xl font-bold">
+                          Personalise your dashboard by enabling the custom widgets
+                        </h1>
+                      </DialogTitle>
                     </div>
 
-                    <div className="relative mt-6 flex gap-10 flex-1 px-4 sm:px-6">
-                      {Categories.map((item, index) => (
-                        <span 
+                    <div className="relative mt-6 flex gap-20 flex-1 px-4 sm:px-6">
+                        {Categories.map((item, index) => (
+                          <span 
                             key={index}
-                            className="h-8 text-lg font-normal border-b-4 border-blue-700"
-                        >
+                            onClick={(e) => displayWidget(item)}
+                            className="h-8 text-lg font-normal border-b-4 border-blue-700 cursor-pointer"
+                          >
                             {item}
-                        </span>
+                          </span>
+                        ))}
+                    </div>
+
+                    <div className="mx-2 min-h-[600px] overflow-y-scroll relative flex flex-col gap-5 flex-1 px-4 bg-gray-100 p-5 rounded-2xl">
+                      {displayData && displayData.map((item) => (
+                        <div 
+                          key={item.id} 
+                          className={`flex gap-5 bg-slate-300 p-5 rounded-2xl ${selecteditems.includes(item.id) ? "bg-red-300" : ""}`}
+                        >
+                          <input 
+                            type="checkbox" 
+                            name={item.title} 
+                            id={item.id}
+                            checked={selecteditems.includes(item.id)}
+                            onChange={() => handleCheckboxChange(item.id)}
+                            />
+                          <h3>{item.title}</h3>
+                        </div>                        
                       ))}
+                    </div>
+
+                    <div className="fixed bottom-5 right-5 m-2">
+                      <button 
+                        className="m-2 border border-blue-900 p-2 rounded-lg"
+                        onClick={handleClose}
+                      >
+                        Cancel
+                      </button>
+
+                      <button 
+                        className="m-2 bg-blue-600 text-white p-2 rounded-lg"
+                        onClick={handleConfirm}
+                      >
+                        Remove Selected
+                      </button>
                     </div>
                   </div>
                 </DialogPanel>

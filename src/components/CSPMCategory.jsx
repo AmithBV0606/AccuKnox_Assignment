@@ -36,7 +36,7 @@ function CSPMCategory() {
                       alt="Cross-Mark" 
                       className="h-6 w-6 cursor-pointer hover:bg-gray-200 rounded-xl"
                       onClick={() => {
-                        deleteWidget(item.id)
+                        deleteWidget(item.id);
                       }}
                     />
                   </div>
