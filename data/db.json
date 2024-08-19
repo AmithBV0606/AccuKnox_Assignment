@@ -1,27 +1,6 @@
 {
   "CSPM-Executive-dashboard": [],
-  "CWPP-dashboard": [
-    {
-      "id": "e8d6",
-      "category": "CWPP-dashboard",
-      "title": "Varun",
-      "text": "Full-Stack"
-    }
-  ],
-  "Registry-Scan": [
-    {
-      "id": "2c69",
-      "category": "Registry-Scan",
-      "title": "Nitish",
-      "text": "Data Scientist"
-    }
-  ],
-  "Ticket": [
-    {
-      "id": "5d21",
-      "category": "Ticket",
-      "title": "Arvind",
-      "text": "Is also a Data Scientist!!"
-    }
-  ]
+  "CWPP-dashboard": [],
+  "Registry-Scan": [],
+  "Ticket": []
 }

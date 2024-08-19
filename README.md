@@ -52,7 +52,7 @@ yarn install
 This project includes a JSON server for mocking API requests. To run the JSON server:
 
 ```bash
-npx json-server --watch db.json --port 3000
+npx json-server --watch data/db.json --port 3000
 ```
 
 ### 2. Start the Development Server
