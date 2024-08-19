@@ -1,11 +1,14 @@
 import { Disclosure, Menu, MenuButton } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
 
 const user = {
   imageUrl:'src/assets/account.png',
 }
 
 export default function Header() {
+  const [searchData, setSearchData] = useState("");
+
   return (
     <>
       <div className="min-h-full">
@@ -37,6 +40,7 @@ export default function Header() {
                   type="search"
                   placeholder='Search for widgets'
                   className='outline-none w-10/12'
+                  onChange={(e) => setSearchData(e.target.value)}
                 />
               </div>
 
